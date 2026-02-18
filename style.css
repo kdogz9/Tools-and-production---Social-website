@@ -113,3 +113,66 @@ h1 { font-size: 4rem; color: var(--pig-pink); margin: 10px 0; }
 }
 
 .btn-discord:hover { transform: translateY(-5px); }
+
+/* FOOTER STYLES */
+.site-footer {
+    background: #000000;
+    color: #ffffff;
+    padding: 60px 5% 30px 5%;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 50px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section h4 {
+    color: var(--pig-pink);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.footer-section p {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    opacity: 0.7;
+}
+
+.social-icons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.social-link {
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.3s ease;
+}
+
+.social-link:hover {
+    color: white;
+}
+
+/* Bottom copyright bar */
+.footer-section:last-child {
+    text-align: right;
+}
+
+/* Responsive adjustment for mobile */
+@media (max-width: 768px) {
+    .footer-section, .footer-section:last-child {
+        text-align: center;
+    }
+    .social-icons {
+        align-items: center;
+    }
+}
