@@ -1,21 +1,20 @@
-let count = 0;
+// Set the date we're counting down to
+const launchDate = new Date("March 1, 2026 00:00:00").getTime();
 
-function piggyPop() {
-    count++;
-    document.getElementById('count').innerText = count;
-    
-    // Add a little console easter egg
-    if (count === 10) {
-        alert("OINK! You're getting greedy now!");
-    }
-}
+const timer = setInterval(function() {
+    const now = new Date().getTime();
+    const distance = launchDate - now;
 
-// Simple scroll animation effect
-window.addEventListener('scroll', () => {
-    const nav = document.querySelector('nav');
-    if (window.scrollY > 50) {
-        nav.style.padding = '10px 50px';
-    } else {
-        nav.style.padding = '20px 50px';
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+    document.getElementById("days").innerText = days;
+    document.getElementById("hours").innerText = hours;
+    document.getElementById("mins").innerText = minutes;
+
+    if (distance < 0) {
+        clearInterval(timer);
+        document.getElementById("countdown").innerHTML = "OUT NOW!";
     }
-});
+}, 1000);

@@ -3,40 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Greedy Piggies | The Ultimate Heist</title>
+    <title>Greedy Piggies | Coming Soon to Campus</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <nav>
-        <div class="logo">Greedy Piggies 🐷</div>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><button class="cta-nav">Play Now</button></li>
-        </ul>
+        <div class="logo">GREEDY PIGGIES 🐷</div>
+        <div class="nav-links">
+            <a href="#trailer">Trailer</a>
+            <a href="#devlog">Dev Log</a>
+            <a href="#community" class="btn-sm">Join Discord</a>
+        </div>
     </nav>
 
-    <header class="hero">
-        <h1>Oink Big or Go Home!</h1>
-        <p>The messiest multiplayer game at Uni. Collect the coins, dodge the butcher, and rule the farm.</p>
-        <button class="btn-main" onclick="piggyPop()">Feed the Piggy</button>
-        <div id="counter-display">Piggies Fed: <span id="count">0</span></div>
-    </header>
+    <section class="hero">
+        <div class="hero-content">
+            <span class="badge">A Uni Game Project</span>
+            <h1>Something's Squealing...</h1>
+            <p>The messiest multiplayer heist game is coming to your dorm room. Are you greedy enough to survive the farm?</p>
+            
+            <div id="countdown">
+                <div class="time-box"><span id="days">00</span><p>Days</p></div>
+                <div class="time-box"><span id="hours">00</span><p>Hrs</p></div>
+                <div class="time-box"><span id="mins">00</span><p>Mins</p></div>
+            </div>
 
-    <section id="features" class="grid">
-        <div class="card">
-            <h3>Steal Coins</h3>
-            <p>Outsmart your classmates and grab the loot.</p>
-        </div>
-        <div class="card">
-            <h3>Upgrade Your Snout</h3>
-            <p>Unlock legendary skins and power-ups.</p>
-        </div>
-        <div class="card">
-            <h3>Global Leaderboards</h3>
-            <p>Show the world who the greediest pig really is.</p>
+            <form class="signup-form">
+                <input type="email" placeholder="Enter email for Beta access..." required>
+                <button type="submit">Get Notified</button>
+            </form>
         </div>
     </section>
+
+    <section id="devlog" class="container">
+        <h2>Latest From The Stylus</h2>
+        <div class="dev-grid">
+            <div class="dev-card">
+                <div class="img-placeholder">Image: New Map "The Mud Pit"</div>
+                <span>Feb 15, 2026</span>
+                <h3>Designing the Mud Physics</h3>
+                <p>How we made the sliding mechanics feel extra slippery...</p>
+            </div>
+            <div class="dev-card">
+                <div class="img-placeholder">Image: Character Skin "Golden Goggles"</div>
+                <span>Feb 10, 2026</span>
+                <h3>Legendary Skins Revealed</h3>
+                <p>Check out the new outfits you can unlock with your stolen coins.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Greedy Piggies Team. Follow our mess on Instagram & TikTok.</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
