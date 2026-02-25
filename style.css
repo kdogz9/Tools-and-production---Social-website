@@ -12,7 +12,7 @@ body {
     color: white;
 }
 
-/* HIGH CONTRAST NAV */
+/* --- NEW RESPONSIVE NAVIGATION --- */
 nav {
     display: flex;
     justify-content: space-between;
@@ -25,14 +25,48 @@ nav {
     box-shadow: 0 4px 20px rgba(0,0,0,0.5);
 }
 
-.logo { color: #000; text-decoration: none; font-size: 1.4rem; }
+.logo { 
+    color: #000; 
+    text-decoration: none; 
+    font-size: 1.4rem; 
+    font-weight: bold;
+}
+
+/* Hamburger Logic */
+.menu-toggle { display: none; }
+
+.hamburger {
+    display: none; /* Hidden on desktop */
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: #000;
+    border-radius: 3px;
+    transition: 0.3s;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
 
 .nav-links a {
     color: #000;
     text-decoration: none;
-    margin-left: 20px;
     font-size: 0.85rem;
     text-transform: uppercase;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    color: var(--pig-pink);
 }
 
 .btn-nav {
@@ -42,14 +76,15 @@ nav {
     border-radius: 4px;
 }
 
-/* HERO & COUNTDOWN */
+/* --- HERO & COUNTDOWN --- */
 .hero {
-    height: 85vh;
+    min-height: 85vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     background: radial-gradient(circle, #222 0%, #000 100%);
+    padding: 40px 20px;
 }
 
 h1 { font-size: 4rem; color: var(--pig-pink); margin: 10px 0; }
@@ -72,7 +107,12 @@ h1 { font-size: 4rem; color: var(--pig-pink); margin: 10px 0; }
 .time-box span { font-size: 2.5rem; color: var(--gold); display: block; }
 .time-box p { margin: 0; font-size: 0.7rem; text-transform: uppercase; opacity: 0.7; }
 
-/* All previous CSS from the last message PLUS these additions: */
+/* --- PAGE CONTAINERS --- */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 80px 20px;
+}
 
 .media-container {
     width: 80%;
@@ -101,20 +141,66 @@ h1 { font-size: 4rem; color: var(--pig-pink); margin: 10px 0; }
     text-align: left;
 }
 
-.btn-discord {
-    background: #5865F2;
-    color: white;
-    padding: 20px 40px;
-    text-decoration: none;
-    border-radius: 8px;
-    font-size: 1.2rem;
-    transition: transform 0.2s;
-    display: inline-block;
+/* --- ABOUT US & BACKSTORY --- */
+.backstory {
+    text-align: center;
+    margin-bottom: 100px;
 }
 
-.btn-discord:hover { transform: translateY(-5px); }
+.backstory h1 {
+    font-size: 4rem;
+    color: var(--pig-pink);
+    margin: 20px 0;
+}
 
-/* FOOTER STYLES */
+.story-content {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: #e0e0e0;
+    text-align: left;
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.story-content p { margin-bottom: 25px; }
+.story-content strong { color: var(--gold); }
+
+.team-overview {
+    text-align: center;
+    padding-top: 50px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.team-overview h2 { font-size: 2.5rem; color: white; }
+
+.dept-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.dept-box {
+    background: #1a1a1a;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: left;
+    transition: transform 0.3s ease;
+    border-bottom: 4px solid var(--pig-pink);
+}
+
+.dept-box:hover { transform: translateY(-5px); }
+
+.dept-box h3 {
+    margin: 0 0 10px 0;
+    color: var(--gold);
+    font-size: 1.4rem;
+    text-transform: uppercase;
+}
+
+.dept-box p { color: #bbb; font-size: 1rem; line-height: 1.5; margin: 0; }
+
+/* --- FOOTER --- */
 .site-footer {
     background: #000000;
     color: #ffffff;
@@ -136,20 +222,11 @@ h1 { font-size: 4rem; color: var(--pig-pink); margin: 10px 0; }
     text-transform: uppercase;
     font-size: 0.9rem;
     margin-bottom: 20px;
-    letter-spacing: 1px;
 }
 
-.footer-section p {
-    font-size: 0.85rem;
-    line-height: 1.6;
-    opacity: 0.7;
-}
+.footer-section p { font-size: 0.85rem; line-height: 1.6; opacity: 0.7; }
 
-.social-icons {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
+.social-icons { display: flex; flex-direction: column; gap: 10px; }
 
 .social-link {
     color: var(--gold);
@@ -158,109 +235,51 @@ h1 { font-size: 4rem; color: var(--pig-pink); margin: 10px 0; }
     transition: color 0.3s ease;
 }
 
-.social-link:hover {
+.social-link:hover { color: white; }
+.footer-section:last-child { text-align: right; }
+
+.btn-discord {
+    background: #5865F2;
     color: white;
+    padding: 20px 40px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    transition: transform 0.2s;
+    display: inline-block;
 }
 
-/* Bottom copyright bar */
-.footer-section:last-child {
-    text-align: right;
-}
-
-/* Responsive adjustment for mobile */
+/* --- SHARED MOBILE RESPONSIVENESS --- */
 @media (max-width: 768px) {
-    .footer-section, .footer-section:last-child {
-        text-align: center;
+    /* Nav Mobile */
+    .hamburger { display: flex; }
+    
+    .nav-links {
+        display: none; 
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #ffffff;
+        flex-direction: column;
+        padding: 20px 0;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     }
-    .social-icons {
-        align-items: center;
-    }
-}
 
-/* CONTAINER SETUP */
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 80px 20px;
-}
+    .menu-toggle:checked ~ .nav-links { display: flex; }
 
-/* BACKSTORY SECTION */
-.backstory {
-    text-align: center;
-    margin-bottom: 100px;
-}
+    /* Nav Animation */
+    .menu-toggle:checked ~ .hamburger span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .menu-toggle:checked ~ .hamburger span:nth-child(2) { opacity: 0; }
+    .menu-toggle:checked ~ .hamburger span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-.backstory h1 {
-    font-size: 4rem;
-    color: var(--pig-pink);
-    margin: 20px 0;
-}
+    /* Footer Mobile */
+    .footer-section, .footer-section:last-child { text-align: center; }
+    .social-icons { align-items: center; }
 
-.story-content {
-    font-size: 1.25rem;
-    line-height: 1.8;
-    color: #e0e0e0;
-    text-align: left;
-    max-width: 750px;
-    margin: 0 auto;
-}
-
-.story-content p {
-    margin-bottom: 25px;
-}
-
-.story-content strong {
-    color: var(--gold);
-}
-
-/* TEAM OVERVIEW */
-.team-overview {
-    text-align: center;
-    padding-top: 50px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-}
-
-.team-overview h2 {
-    font-size: 2.5rem;
-    color: white;
-}
-
-.dept-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two clean columns */
-    gap: 30px;
-    margin-top: 50px;
-}
-
-.dept-box {
-    background: #1a1a1a;
-    padding: 40px;
-    border-radius: 15px;
-    text-align: left;
-    transition: transform 0.3s ease;
-    border-bottom: 4px solid var(--pig-pink);
-}
-
-.dept-box:hover {
-    transform: translateY(-5px);
-}
-
-.dept-box h3 {
-    margin: 0 0 10px 0;
-    color: var(--gold);
-    font-size: 1.4rem;
-    text-transform: uppercase;
-}
-
-.dept-box p {
-    color: #bbb;
-    font-size: 1rem;
-    line-height: 1.5;
-    margin: 0;
-}
-
-/* MOBILE RESPONSIVENESS */
-@media (max-width: 768px) {
+    /* Content Mobile */
+    h1, .backstory h1 { font-size: 2.5rem; }
     .dept-grid { grid-template-columns: 1fr; }
-    .backstory h1 { font-size: 2.5rem; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    #countdown { flex-wrap: wrap; }
 }
