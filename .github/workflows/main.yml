@@ -1,13 +1,9 @@
-name: Deploy JSDoc to GitHub Pages
+name: Generate JSDoc Artifacts
 
 on:
   push:
     branches: ["main"]
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+  workflow_dispatch: # This allows you to run it manually from the Actions tab
 
 jobs:
   build:
@@ -22,26 +18,17 @@ jobs:
           node-version: '20'
 
       - name: Global Install JSDoc
-        # This installs JSDoc without needing a package.json file
+        # Installs JSDoc globally on the runner since there is no package.json
         run: npm install -g jsdoc
 
       - name: Generate HTML
-        # We call 'jsdoc' directly since it's installed globally
-        # We pass script.js explicitly to ensure it's picked up
+        # Uses your config to parse script.js into the ./docs folder
         run: jsdoc -c jsdoc.json ./script.js
 
-      - name: Upload to GitHub Pages
-        uses: actions/upload-pages-artifact@v3
+      - name: Save Documentation as Artifact
+        # This takes the generated folder and makes it a downloadable zip
+        uses: actions/upload-artifact@v4
         with:
-          path: './docs'
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          name: jsdoc-documentation
+          path: ./docs/
+          retention-days: 5
