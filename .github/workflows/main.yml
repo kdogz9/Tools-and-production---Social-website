@@ -2,16 +2,14 @@ name: Deploy JSDoc to GitHub Pages
 
 on:
   push:
-    branches: ["main"] # The action runs whenever you push to your main branch
+    branches: ["main"]
 
-# These permissions allow the Action to actually create the website
 permissions:
   contents: read
   pages: write
   id-token: write
 
 jobs:
-  # STEP 1: Build the HTML files from your Javascript
   build:
     runs-on: ubuntu-latest
     steps:
@@ -23,20 +21,20 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install JSDoc
-        run: npm install jsdoc
+      - name: Global Install JSDoc
+        # This installs JSDoc without needing a package.json file
+        run: npm install -g jsdoc
 
-      - name: Generate HTML Documentation
-        # This looks for your jsdoc.json file for instructions
-        run: npx jsdoc -c jsdoc.json
+      - name: Generate HTML
+        # We call 'jsdoc' directly since it's installed globally
+        # We pass script.js explicitly to ensure it's picked up
+        run: jsdoc -c jsdoc.json ./script.js
 
       - name: Upload to GitHub Pages
         uses: actions/upload-pages-artifact@v3
         with:
-          # This folder name must match the "destination" in your jsdoc.json
           path: './docs'
 
-  # STEP 2: Take those HTML files and put them on the web
   deploy:
     needs: build
     runs-on: ubuntu-latest
