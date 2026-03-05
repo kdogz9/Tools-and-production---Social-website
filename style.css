@@ -261,4 +261,50 @@ h1 { font-size: 4rem; color: var(--pig-pink); margin: 10px 0; }
     h1, .lore-header h1 { font-size: 2.5rem; }
 
     .profile-card { width: 90%; }
+} 
+
+/* --- BRINGING BACK THE GLOW & ALIGNMENT --- */
+
+/* Centers the "Select Your Swine" and "Usual Suspects" titles */
+.character-profiles {
+    text-align: center;
+    padding-top: 20px; /* Reduces that awkward top space */
+}
+
+.character-profiles h2 {
+    margin-top: 10px;
+    font-size: 2.8rem; /* Matches your screenshot size */
+}
+
+/* Restores the Pink-Red Bottom Glow on About Us Boxes */
+.dept-box {
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 5px solid var(--pig-pink); /* That signature pink-red line */
+    box-shadow: 0 10px 20px rgba(243, 58, 106, 0.1); /* Subtle glow */
+}
+
+/* Restores the Character Card Glow and Border */
+.profile-card {
+    border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Centers the "The Legend of the Pig" title */
+.backstory {
+    text-align: center;
+}
+
+.backstory h1 {
+    font-size: 4.5rem;
+    margin-bottom: 40px;
+}
+
+/* Fixes image broken links showing alt text in white */
+.profile-img img {
+    color: white; 
+    font-size: 0.8rem;
+    text-align: center;
+    line-height: 250px;
 }
