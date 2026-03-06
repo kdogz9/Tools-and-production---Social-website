@@ -409,7 +409,8 @@ h1 { font-size: 4rem; color: var(--pig-pink); margin: 10px 0; }
 .profile-card:hover {
     transform: translateY(-10px);
     border-color: var(--gold);
-    box-shadow: 0 10px 30px rgba(243, 58, 106, 0.2);
+    /* UPDATED: Purple glow added here */
+    box-shadow: 0 10px 30px rgba(221, 23, 236, 0.2);
 }
 
 .profile-img {
@@ -429,12 +430,15 @@ h1 { font-size: 4rem; color: var(--pig-pink); margin: 10px 0; }
     color: white; /* Shows alt text clearly if image is broken */
 }
 
+/* Stats that appear on hover */
 .stats-overlay {
     position: absolute;
     bottom: -100%;
     left: 0;
     width: 100%;
-    background:  #dd17ec(243, 58, 106, 0.9);
+    /* UPDATED: Uses pig-pink (purple) variable with 0.9 opacity */
+    background: var(--pig-pink);
+    opacity: 0.9;
     color: white;
     padding: 15px 0;
     transition: 0.3s ease;
@@ -466,4 +470,3 @@ h1 { font-size: 4rem; color: var(--pig-pink); margin: 10px 0; }
     line-height: 1.5;
     font-family: 'Georgia', serif;
 }
-
