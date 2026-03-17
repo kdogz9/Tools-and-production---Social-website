@@ -556,3 +556,10 @@ h1 { font-size: 4rem; color: var(--pig-pink); margin: 10px 0; }
         margin-top: 40px;
     }
 }
+/* Ensures the image fills the frame but keeps its shape */
+.lore-fit-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This crops the image to fill the box perfectly */
+    border-radius: 12px; /* Matches your frame corners */
+}
